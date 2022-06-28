@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  .input {
+    font-size: 25px;
+  }
+  .button {
+    font-size: 25px;
+  }
+  .dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .dialog__text {
+      height: 50px;
+      width: 200px;
+    }
+    .dialog__number {
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      color: rgb(226, 123, 158);
+    }
+  }
+  .dialog__close {
+    height: 50px;
+  }
+}

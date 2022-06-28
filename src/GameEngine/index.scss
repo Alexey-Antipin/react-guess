@@ -1,0 +1,31 @@
+.engine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  position: absolute;
+  border: rgb(149, 157, 151) solid 2px;
+  border-radius: 25px;
+  z-index: 3;
+  background: rgb(175, 255, 230);
+  top: 10%;
+  right: 20%;
+  height: 80%;
+  width: 60%;
+  .engine__text {
+    height: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .engine__block {
+    height: 220px;
+    width: 220px;
+    text-align: center;
+    border: black solid 2px;
+    .engine__button {
+      height: 25px;
+      width: 100px;
+      margin: 5px;
+    }
+  }
+}
