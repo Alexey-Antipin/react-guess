@@ -20,14 +20,14 @@
     justify-content: center;
     font-family: "Courier New", Courier, monospace;
     .dialog__text {
-      height: 50px;
-      width: 256px;
+      margin: 10px;
+      width: 300px;
     }
     .dialog__number {
       float: right;
       font-size: 28px;
+      width: 38px;
       font-weight: bold;
-      width: 50px;
       color: rgb(226, 123, 158);
     }
   }
