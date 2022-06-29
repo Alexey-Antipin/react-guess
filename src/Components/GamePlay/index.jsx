@@ -3,7 +3,8 @@ import { ContextState } from "../../Context";
 import "./index.scss";
 
 export const GamePlay = () => {
-  const context = useContext(ContextState)
+  const context = useContext(ContextState);
+  const lengthRandNumber = context.randNumber.toString().split("");
 
   function fractionMassives() {
     let fractionNumber = context.randNumber.toString().split("");
@@ -13,16 +14,19 @@ export const GamePlay = () => {
 
   const checkMassive = (fractionNumber, fractionValue) => {
     let tryAttempt = [];
-    if (context.attempt.length == 3) {
-      console.log("WIN");
-    }
-    for (let i = 0; i < 3; i++) {
-      if (fractionNumber[i] === fractionValue[i]) {
-        tryAttempt.push(1);
+
+    for (let i = 0; i < lengthRandNumber.length; i++) {
+      if (fractionNumber[i] == fractionValue[i]) {
+        tryAttempt.push(0);
       }
     }
-    context.setAttempt(tryAttempt);
-    context.setLive(context.live - 1);
+
+    if (tryAttempt.length == lengthRandNumber.length) {
+      context.setAttempt(true);
+    } else {
+      context.setAttempt(tryAttempt);
+      context.setLive(context.live - 1);
+    }
   };
 
   return (
@@ -31,8 +35,9 @@ export const GamePlay = () => {
         className="input"
         type="text"
         value={context.value}
+        disabled={context.randNumber == 0}
         onChange={(e) => context.setValue(e.target.value)}
-        maxLength={3}
+        maxLength={lengthRandNumber.length}
         placeholder="Ваше число?"
       />
 

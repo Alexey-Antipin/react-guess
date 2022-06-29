@@ -4,22 +4,30 @@
   width: 330px;
   .input {
     font-size: 25px;
+    border-radius: 15px 15px 0px 0px;
   }
+
   .button {
     font-size: 25px;
+    font-family: "Courier New", Courier, monospace;
+    border-radius: 0px 0px 15px 15px;
+    background-color: rgb(60, 255, 0);
   }
+
   .dialog {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "Courier New", Courier, monospace;
     .dialog__text {
       height: 50px;
-      width: 200px;
+      width: 256px;
     }
     .dialog__number {
       float: right;
       font-size: 28px;
       font-weight: bold;
+      width: 50px;
       color: rgb(226, 123, 158);
     }
   }

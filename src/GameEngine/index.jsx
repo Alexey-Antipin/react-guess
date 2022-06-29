@@ -7,7 +7,7 @@ export const GameEngine = () => {
 
   const exitFromEngine = () => {
     context.setDisabled(!context.disabled);
-    context.setGameEngine(!context.gameEngine);
+    context.setGameEngine((context.gameEngine = false));
   };
 
   const liveInterval = (event) => {
@@ -15,15 +15,21 @@ export const GameEngine = () => {
 
     if (id == 1 && context.live < 10) {
       context.setLive(context.live + 1);
-    } else if (id == 2 && context.live > 0) {
+    } else if (id == 2 && context.live > 1) {
       context.setLive(context.live - 1);
     }
+    context.setLiveLimit(context.live);
   };
 
   return (
     <div>
       <div className="engine">
-        <div className="engine__text">Настройки</div>
+        <div className="engine__preview">
+          <div className="engine__text">Настройки</div>
+          <button className="engine__button" onClick={() => exitFromEngine()}>
+            Готово
+          </button>
+        </div>
 
         {/* Количество попыток */}
         <div className="engine__block">
@@ -31,13 +37,13 @@ export const GameEngine = () => {
           <div>
             <button
               id="1"
-              className="engine__button"
+              className="engine__button-plus"
               onClick={(event) => liveInterval(event)}>
               +
             </button>
             <button
               id="2"
-              className="engine__button"
+              className="engine__button-minus"
               onClick={(event) => liveInterval(event)}>
               -
             </button>
@@ -61,10 +67,6 @@ export const GameEngine = () => {
             placeholder="Максимальное значение"
           />
         </div>
-
-        <button onClick={() => exitFromEngine()}>
-          Выполнить и выйти
-        </button>
       </div>
     </div>
   );

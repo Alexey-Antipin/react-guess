@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { ContextState } from "../Context";
+import { GameEngine } from "../GameEngine";
 import { Logic } from "../Components/Logic";
 import { GamePlay } from "../Components/GamePlay";
 import { AgainPlay } from "../Components/RepeatComponents";
-import { GameEngine } from "../GameEngine";
 import "./index.scss";
-import { ContextState } from "../Context";
 
 export const App = () => {
   const [live, setLive] = useState(5);
+  const [liveLimit, setLiveLimit] = useState();
   const [min, setMin] = useState(100);
   const [max, setMax] = useState(400);
   const [value, setValue] = useState("");
@@ -25,6 +26,8 @@ export const App = () => {
         setMax,
         live,
         setLive,
+        liveLimit,
+        setLiveLimit,
         value,
         setValue,
         attempt,
@@ -37,13 +40,15 @@ export const App = () => {
         setDisabled,
       }}>
       <div className="app">
-        <Logic />
-        <GamePlay />
-        {!live && <AgainPlay />}
-        {attempt.length == 3 && (
-          <AgainPlay word={"Вы победили, поздравляем!"} />
-        )}
-        {gameEngine && <GameEngine />}
+        <div className="gameplay">
+          <Logic />
+          <GamePlay />
+        </div>
+        <div>
+          {!live && <AgainPlay />}
+          {attempt == true && <AgainPlay word={"Вы победили, поздравляем!"} />}
+          {gameEngine && <GameEngine />}
+        </div>
       </div>
     </ContextState.Provider>
   );

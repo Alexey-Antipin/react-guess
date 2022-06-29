@@ -7,25 +7,53 @@
   border: rgb(149, 157, 151) solid 2px;
   border-radius: 25px;
   z-index: 3;
-  background: rgb(175, 255, 230);
+  background: rgb(255, 255, 255);
   top: 10%;
-  right: 20%;
+  right: 32%;
   height: 80%;
-  width: 60%;
-  .engine__text {
+  width: 600px;
+  .engine__preview {
     height: 20px;
     width: 100%;
-    text-align: center;
+    position: relative;
+    .engine__text {
+      margin-top: 5px;
+      position: absolute;
+      text-align: center;
+      width: 600px;
+    }
+    .engine__button {
+      position: relative;
+      padding: 5px;
+      font-size: 25px;
+      font-weight: bold;
+      border-radius: 25px;
+      width: 150px;
+      background-color: rgb(64, 255, 0);
+      float: right;
+    }
   }
   .engine__block {
     height: 220px;
     width: 220px;
     text-align: center;
+    border-radius: 15px;
     border: black solid 2px;
-    .engine__button {
-      height: 25px;
+    .engine__button-plus {
       width: 100px;
       margin: 5px;
+      background-color: green;
+      border-radius: 15px;
+      font-size: 25px;
+      padding: 5px;
+    }
+    .engine__button-minus {
+      width: 100px;
+      margin: 5px;
+      background-color: red;
+      border-radius: 15px;
+      font-size: 25px;
+      padding: 5px;
     }
   }
 }

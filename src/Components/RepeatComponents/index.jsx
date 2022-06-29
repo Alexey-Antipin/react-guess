@@ -11,20 +11,16 @@ export const AgainPlay = ({
   const context = useContext(ContextState);
 
   const gameAgain = () => {
-    if(context.live <= 0){
-      context.setLive(5);
-    }
+    context.setLive(context.liveLimit || 5);
     context.setRandNumber("");
     context.setValue("");
     context.setAttempt("");
-    context.setDisabled(!context.disabled);
+    context.setDisabled((context.disabled = false));
   };
 
   return (
     <div className={class__component || "component"}>
-      <p className={class__word || "word"}>
-        {word || "Вы проиграли!"}
-      </p>
+      <p className={class__word || "word"}>{word || "Вы проиграли!"}</p>
 
       <button
         className={class__button || "button "}
@@ -33,6 +29,7 @@ export const AgainPlay = ({
       </button>
 
       <button
+        className={class__button || "button"}
         onClick={() => context.setGameEngine(!context.gameEngine)}>
         Изменить настройки игры
       </button>

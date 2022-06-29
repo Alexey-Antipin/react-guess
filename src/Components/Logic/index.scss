@@ -1,15 +1,21 @@
-.logic__button {
-  font-size: 25px;
-  width: 330px;
-  background: lawngreen;
-}
 .logic {
-  font-weight: bold;
   font-family: "Courier New", Courier, monospace;
-}
-.logic__attempt {
-  height: 55px;
-}
-.logic__close {
-  height: 55px;
+  .logic__button {
+    width: 330px;
+    font-size: 25px;
+    font-family: "Courier New", Courier, monospace;
+    background: rgb(143, 252, 0);
+    border-radius: 15px;
+  }
+  .logic__text {
+    text-align: center;
+    font-size: 35px;
+  }
+  .logic__attempt {
+    height: 55px;
+    text-align: center;
+  }
+  .logic__close {
+    height: 55px;
+  }
 }
